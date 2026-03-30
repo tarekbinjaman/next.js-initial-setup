@@ -31,6 +31,42 @@ Here's what each package does:
 - @types/pg - TypeScript type definitions for node-postgres
 - dotenv - Loads environment variables from your .env file
 
+### 3. Configure ESM support
+
+Update tsconfig.json for ESM compatibility:
+
+~~~
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2023",
+    "strict": true,
+    "esModuleInterop": true,
+    "ignoreDeprecations": "6.0"
+  }
+}
+~~~
+
+Update package.json to enable ESM:
+
+~~~
+{
+  "type": "module"
+}
+~~~
+
+### 4. Modify tsconfig.json
+
+-  uncomment outdir (uncomment)
+
+- comment jsx, verbatimModuleSyntax
+
+### 5. 
+
+~~~
+npm -D @types/node
+~~~
 
 ### Next, set up your Prisma ORM project by creating your Prisma Schema file with the following command:
 
@@ -39,3 +75,10 @@ npx prisma init --datasource-provider postgresql --output ../generated/prisma
 ~~~
 
 # Prisma setup done
+
+
+## Node Setup start here
+- Step one
+~~~
+npm i express cors
+~~~
