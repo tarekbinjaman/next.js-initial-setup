@@ -30,3 +30,28 @@ Here's what each package does:
 - pg - The node-postgres database driver
 - @types/pg - TypeScript type definitions for node-postgres
 - dotenv - Loads environment variables from your .env file
+
+
+### 3. Configure ESM support
+Update tsconfig.json for ESM compatibility:
+
+~~~
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2023",
+    "strict": true,
+    "esModuleInterop": true,
+    "ignoreDeprecations": "6.0"
+  }
+}
+~~~
+
+Update package.json to enable ESM:
+
+~~~
+{
+  "type": "module"
+}
+~~~
