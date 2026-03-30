@@ -32,26 +32,10 @@ Here's what each package does:
 - dotenv - Loads environment variables from your .env file
 
 
-### 3. Configure ESM support
-Update tsconfig.json for ESM compatibility:
+### Next, set up your Prisma ORM project by creating your Prisma Schema file with the following command:
 
 ~~~
-{
-  "compilerOptions": {
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "target": "ES2023",
-    "strict": true,
-    "esModuleInterop": true,
-    "ignoreDeprecations": "6.0"
-  }
-}
+npx prisma init --datasource-provider postgresql --output ../generated/prisma
 ~~~
 
-Update package.json to enable ESM:
-
-~~~
-{
-  "type": "module"
-}
-~~~
+# Prisma setup done
