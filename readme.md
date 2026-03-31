@@ -62,7 +62,7 @@ Update package.json to enable ESM:
 
 - comment jsx, verbatimModuleSyntax
 
-### 5. 
+### 5
 
 ~~~
 npm -D @types/node
@@ -82,3 +82,14 @@ npx prisma init --datasource-provider postgresql --output ../generated/prisma
 ~~~
 npm i express cors
 ~~~
+
+### 6 include and exclude
+
+In tsconfig.json write those
+
+~~~
+"include" : ["src/**/*"],
+"exclude" : ["node_modules", "dist", "src/generated"]
+~~~
+
+After writing those relod VScode window
