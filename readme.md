@@ -337,3 +337,25 @@ replies Comment[]
 ✔ Why needed?
 
 - Prisma needs to understand both sides are connected
+
+
+
+
+# After model writing process
+
+Migrate your model to your database
+
+~~~
+npx prisma migrate dev
+~~~
+
+Then 
+- init
+
+you will see migration complete
+
+Then run generate command
+
+~~~
+npx prisam generate
+~~~
