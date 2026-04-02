@@ -95,7 +95,7 @@ In tsconfig.json write those
 After writing those relod VScode window
 
 
-# Database setup
+# 7 Database setup
 
 In .env file setup your postgres
 - Username
@@ -107,7 +107,7 @@ This is how your link looks like
 DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
 ~~~
 
-# Setup your model in prisma
+# 8 Setup your model in prisma
 
 ⚠️ Common Mistakes
 - ❌ Missing relation fields
@@ -341,7 +341,7 @@ replies Comment[]
 
 
 
-# After model writing process
+# 9 After model writing process
 
 Migrate your model to your database
 
