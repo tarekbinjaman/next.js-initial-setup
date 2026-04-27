@@ -59,3 +59,42 @@ export default function Home() {
   );
 }
 ~~~
+
+
+6. Fix black backgroutnd
+
+Go to:
+
+~~~
+src/app/globals.css
+~~~
+
+you probably see something like that:
+
+~~~
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+~~~
+
+replace with :
+
+~~~
+body {
+  background: white;
+  color: black;
+}
+~~~
