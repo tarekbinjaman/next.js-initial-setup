@@ -115,3 +115,14 @@ From here you will start writing your component, functions, api and more.
 ## 4. Token store
 ## 5. Protected routes
 ## 6. Dashboard features
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Set your folder structure
+
+src/
+ ├── app/
+ ├── components/
+ ├── services/
+ ├── hooks/
+ ├── lib/
