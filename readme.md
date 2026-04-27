@@ -26,7 +26,7 @@ Now, you will see your very first next.js files here
 4. open:
 npm run dev
 [http://localhost:3000](http://localhost:3000)
-
+<a href="http://localhost:3000">http://localhost:3000</a>
 5. Understand Next.js Structure (Very Important)
 Inside src/app:
 
