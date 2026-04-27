@@ -107,4 +107,11 @@ From here you will start writing your component, functions, api and more.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#
+# 🔥 Smart Developer Order (Remember This)
+
+## 1. Layout + pages
+## 2. Rgister
+## 3. Login
+## 4. Token store
+## 5. Protected routes
+## 6. Dashboard features
