@@ -1,56 +1,60 @@
 # Follwoing this steps we can start a next.js project easily here we go
 
 1. Run this:
-~~~
+
+```
 npx create-next-app@latest my-frontend
-~~~
+```
 
 2. It will ask questions → choose like this:
-~~~
+
+```
 ✔ TypeScript? → Yes
 ✔ ESLint? → Yes
 ✔ Tailwind CSS? → Yes
 ✔ App Router? → Yes (IMPORTANT)
 ✔ src/ directory? → Yes
 ✔ Import alias? → Yes
-~~~
+```
 
-3. Then: 
-~~~
+3. Then:
+
+```
 cd my-frontend
-~~~
-Then enter  "code ." in cmd
+```
+
+Then enter "code ." in cmd
 
 Now, you will see your very first next.js files here
 
 4. open:
-npm run dev
-[http://localhost:3000](http://localhost:3000)
+   npm run dev
+   [http://localhost:3000](http://localhost:3000)
 5. Understand Next.js Structure (Very Important)
-Inside src/app:
+   Inside src/app:
 
-~~~
+```
 app/
  ├── layout.tsx   ← global layout
  ├── page.tsx     ← home page (/)
-~~~
+```
 
 👉 In Next.js:
+
 - page.tsx = route
 - Folder name = URL
 
 Example:
 
-~~~
+```
 app/about/page.tsx → /about
-~~~
-
+```
 
 5. Clean Setup (Recommended)
 
 Delete everything inside page.tsx and write:
 
-~~~
+```
 export default function Home() {
   return (
     <div>
@@ -58,20 +62,19 @@ export default function Home() {
     </div>
   );
 }
-~~~
-
+```
 
 6. Fix black backgroutnd
 
 Go to:
 
-~~~
+```
 src/app/globals.css
-~~~
+```
 
 you probably see something like that:
 
-~~~
+```
 :root {
   --background: #ffffff;
   --foreground: #000000;
@@ -88,117 +91,176 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
-~~~
+```
 
 replace with :
 
-~~~
+```
 body {
 @import "tailwindcss";
 
   background: white;
   color: black;
 }
-~~~
+```
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 # Till now you just installed your Next.js app but Real game start now!
 
 From here you will start writing your component, functions, api and more.
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 # 🔥 Smart Developer Order (Remember This)
 
 ## 1. Layout + pages
+
 ## 2. Rgister
+
 ## 3. Login
+
 ## 4. Token store
+
 ## 5. Protected routes
+
 ## 6. Dashboard features
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 # Create your folder structure inside src like this
 
 src/
- ├── app/
- ├── components/
- ├── services/
- ├── hooks/
- ├── lib/
+├── app/
+├── components/
+├── services/
+├── hooks/
+├── lib/
 
+# create Navbar.tsx inside |──components folder
 
- # create Navbar.tsx inside |──components folder
- ~~~
- import Link from "next/link";
+```
+import Link from "next/link";
 
 export default function Navbar() {
-    return (
-        <nav className="w-full border-b px-6 py-4 flex items-center justify-between">
-            {/* logo */}
-            <Link href="/" >Skill Bridge</Link>
+   return (
+       <nav className="w-full border-b px-6 py-4 flex items-center justify-between">
+           {/* logo */}
+           <Link href="/" >Skill Bridge</Link>
 
-            {/* Navigation */}
-            <div>
-                <Link href="/">Home</Link>
-                <Link href="/coursed">Courses</Link>
-                <Link href="/tutors">Tutors</Link>
-                <Link href="/tutors">Tutors</Link>
-                <Link href="/about">About</Link>
-            </div>
+           {/* Navigation */}
+           <div>
+               <Link href="/">Home</Link>
+               <Link href="/coursed">Courses</Link>
+               <Link href="/tutors">Tutors</Link>
+               <Link href="/tutors">Tutors</Link>
+               <Link href="/about">About</Link>
+           </div>
 
-            {/* Auth */}
-        <div>
-            <Link href="/login">Login</Link>
-            <Link href="/register">Register</Link>
-        </div>
-        </nav>
-    )
+           {/* Auth */}
+       <div>
+           <Link href="/login">Login</Link>
+           <Link href="/register">Register</Link>
+       </div>
+       </nav>
+   )
 }
- ~~~
+```
 
+# Then use Navbar in src/app/layout.tsx like this
 
- # Then use it in src/app/layout.tsx like this
-
- ~~~
- import type { Metadata } from "next";
+```
+import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar/Navbar";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+ variable: "--font-geist-sans",
+ subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+ variable: "--font-geist-mono",
+ subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Create Next App",
-  description: "Generated by create next app",
+ title: "Create Next App",
+ description: "Generated by create next app",
 };
 
 export default function RootLayout({
-  children,
+ children,
 }: Readonly<{
-  children: React.ReactNode;
+ children: React.ReactNode;
 }>) {
+ return (
+   <html
+     lang="en"
+     className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+   >
+     <body className="min-h-full flex flex-col">
+       <Navbar/>
+       {children}
+       </body>
+   </html>
+ );
+}
+
+```
+
+# Now the font setup
+
+## Step 1: Import font in layout.tsx
+
+```
+import { Outfit } from "next/font/google";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+    weight: ["200", "300", "400", "500", "600", "700"],
+});
+```
+
+I am using "Outfit" font here. So, i am importing it from next font which is default font system in next.js.
+
+## 🔹 Step 2: Apply font to <body>
+
+```
+export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        <Navbar/>
+    <html lang="en">
+      <body className={outfit.className}>
         {children}
-        </body>
+      </body>
     </html>
   );
 }
+```
 
- ~~~
+✅ That’s it — font is now applied everywhere
+
+# Install and setup shadecn
+
+```
+npx shadcn@latest init
+```
+
+- then "radix"
+- then "nova"
+
+try to run this if no error found then ok
+
+```
+npx shadcn@latest add button
+```
+
+Check folder structure
+
+components/
+ui/
+lib/
+utils.ts
+
+👉 If missing → setup not complete
