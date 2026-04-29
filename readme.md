@@ -238,8 +238,20 @@ export default function RootLayout({ children }) {
   );
 }
 ```
-
 ✅ That’s it — font is now applied everywhere
+
+✅ Step 2: Use Tailwind classes
+
+Now you DON’T write font-200 ❌
+Tailwind uses named classes 👇
+
+Weight	Tailwind class
+200	font-extralight
+300	font-light
+400	font-normal
+500	font-medium
+600	font-semibold
+700	font-bold
 
 # Install and setup shadecn
 
